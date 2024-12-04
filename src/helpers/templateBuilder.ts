@@ -22,25 +22,25 @@ const timeNotify = (time: string, hourGap: number) => {
 
 const costNotify = (shipmentCost: number, productCost: number, total: number) => {
   if ((shipmentCost && shipmentCost > 0) && (productCost && productCost > 0)) {
-    return `\n\n💵Nos informaron que tenés que abonar $${shipmentCost} de envío + $${productCost} del producto. Siendo un total de $${(Number(shipmentCost)+Number(productCost))}`
+    return `\n\n💵 Nos informaron que tenés que abonar $${shipmentCost} de envío + $${productCost} del producto. Siendo un total de $${(Number(shipmentCost)+Number(productCost))}`
   }
 
   if (shipmentCost && shipmentCost > 0) {
-    return `\n\n💵Nos informaron que tenés que abonar $${shipmentCost} del envío. Avísame si vas a necesitar cambio asi estamos preparados.`
+    return `\n\n💵 Nos informaron que tenés que abonar $${shipmentCost} del envío. Avísame si vas a necesitar cambio asi estamos preparados.`
   }
 
   if (productCost && productCost > 0) {
-    return `\n\n💵Nos informaron que tenés que abonar $${productCost} del producto. Avísame si vas a necesitar cambio asi estamos preparados.`
+    return `\n\n💵 Nos informaron que tenés que abonar $${productCost} del producto. Avísame si vas a necesitar cambio asi estamos preparados.`
   }
 
   if (total && total > 0) {
-    return `\n\n💵Nos informaron que tenés que abonar $${total}. Avísame si vas a necesitar cambio asi estamos preparados`
+    return `\n\n💵 Nos informaron que tenés que abonar $${total}. Avísame si vas a necesitar cambio asi estamos preparados`
   }
 
   return '';
 }
 
-const additionalInfo = '⚠️Recorda que no ingresamos en pasajes, edificios, oficinas, complejos y shoppings 🤗🤗'
+const additionalInfo = '⚠️ Recorda que no ingresamos en pasajes, edificios, oficinas, complejos y shoppings 🤗🤗'
 
 export const templateBuilder = ({
   name = '',

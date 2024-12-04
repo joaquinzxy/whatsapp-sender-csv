@@ -7,6 +7,7 @@ import { ParsedData } from './interfaces/parsedData.interface'
 import { Setup } from './components/Setup'
 import CsvToWpp from './screens/CsvToWpp'
 import CsvToContacts from './screens/CsvToContacts'
+import { Toaster } from './components/ui/toaster'
 
 function App() {
 
@@ -38,10 +39,11 @@ function App() {
       <ScreenSelector refTrigger={menuTrigger} setScreen={setScreen} isDataLoaded={csvData?.length > 1}/>
       { screen === SCREENS[0] && <CsvToWpp messageDataList={messageDataList}/> }
       { screen === SCREENS[1] && <CsvToContacts contacts={contactDataList} setContacts={setContactDataList}/> }
-      { screen === SCREENS[2] && <Setup setMessageDataList={setMessageDataList} setCsvData={setCsvData}/> }
+      { screen === SCREENS[2] && <Setup setMessageDataList={setMessageDataList} setCsvData={setCsvData} setScreen={setScreen}/> }
       <Button size="icon" onClick={onClickMenuBtn} className="fixed bottom-4 right-4">
         <Menu/>
       </Button>
+      <Toaster />
     </>
   )
 }

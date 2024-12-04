@@ -1,5 +1,4 @@
 import { ContactItem } from '@/components/ContactItem';
-import { Toaster } from '@/components/ui/toaster';
 import React, { useEffect, useRef, useState } from 'react';
 
 import { ParsedData } from '@/interfaces/parsedData.interface';
@@ -102,7 +101,6 @@ const CsvToContacts: React.FC<CsvToContactsProps> = ({ contacts, setContacts }) 
           )
         }
       </div>
-      <Toaster />
     </>
   );
 }

@@ -3,10 +3,12 @@ import Papa from 'papaparse';
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { useToast } from '@/hooks/use-toast';
+import { SCREENS } from '@/lib/utils';
 
 interface SetupProps {
   setMessageDataList: (data: any[]) => void;
   setCsvData: (data: any[]) => void;
+  setScreen: (screen: any) => void;
 }
 
 interface ParsedData {
@@ -28,7 +30,7 @@ const validateCSV = (messageData: { name: string; company: string; time: string;
   return true;
 }
 
-export const Setup: React.FC<SetupProps> = ({ setMessageDataList, setCsvData }) => {
+export const Setup: React.FC<SetupProps> = ({ setMessageDataList, setCsvData, setScreen }) => {
 
   const { toast } = useToast();
   const fileInput = useRef<HTMLInputElement>(null);
@@ -86,6 +88,7 @@ export const Setup: React.FC<SetupProps> = ({ setMessageDataList, setCsvData }) 
             });
 
             setMessageDataList(validatedData);
+            setScreen(SCREENS[0]);
           }
         },
       });

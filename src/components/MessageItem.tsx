@@ -60,7 +60,7 @@ export const MessageItem: React.FC<MessageItemProps> = ({ messageInfo = {} as Me
   }
 
   const validateMessage = () => {
-    if (!messageData.company || !messageData.name || !messageData.time || !messageData.phone || !messageBody) {
+    if (!messageData.company || !messageData.name || !messageData.time || !messageData.phone || messageData.phone.length != 8 || !messageBody) {
       return false;
     }
     return true;
@@ -87,6 +87,21 @@ export const MessageItem: React.FC<MessageItemProps> = ({ messageInfo = {} as Me
     <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}
       className="bg-white p-4 rounded-lg shadow-md w-full border border-gray-200"
     >
+      <div className="grid grid-cols-1 w-full mt-3 gap-2 text-center">
+        {
+          !validateMessage() && (
+            <div className="form-group">
+              <p className="text-red-500 text-sm">Por favor los campos [ Partner, Nombre, Llegada, Teléfono ] son obligatorios</p>
+              {
+                messageData.phone.length != 8 && (
+                  <p className="text-red-500 text-sm">El número de teléfono debe tener 8 dígitos</p>
+                )
+              }
+            </div>
+          )
+        }
+      </div>
+
       <div className="grid grid-cols-2 gap-2 mt-3">
         <div className="form-group col-span-1">
           <Label htmlFor={"company-" + id}>🤝 Partner</Label>
