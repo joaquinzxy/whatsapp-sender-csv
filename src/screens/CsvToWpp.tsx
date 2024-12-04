@@ -1,15 +1,10 @@
 import { MessageItem } from '@/components/MessageItem';
+import { ParsedData } from '@/interfaces/parsedData.interface';
 import { Setup } from '@/components/Setup';
 import { Toaster } from '@/components/ui/toaster';
-import React, { useState } from 'react';
 
-interface ParsedData {
-  name: string;
-  company: string;
-  time: string;
-  cost: string;
-  phone: string;
-}
+import React, { useState } from 'react';
+import { ContactExporter } from '@/components/ContactExporter';
 
 const phoneParser = (phone: string) => {
   if (phone.startsWith('0')) {
@@ -19,9 +14,11 @@ const phoneParser = (phone: string) => {
 }
 
 
-const CsvToWpp: React.FC = () => {
-  const [messageDataList, setMessageDataList] = useState<ParsedData[]>([]);
+interface CsvToWppProps {
+  messageDataList: ParsedData[];
+}
 
+const CsvToWpp: React.FC<CsvToWppProps> = ({ messageDataList }) => {
   const sendWhatsapp = (phone: string, message: string) => {
     if (message && phone) {
       const url = `https://api.whatsapp.com/send/?phone=${phoneParser(phone)}&text=${encodeURIComponent(message)}`;
@@ -35,7 +32,6 @@ const CsvToWpp: React.FC = () => {
         <h1 className="text-2xl font-bold text-center">CSV to Whatsapp</h1>
       </div>
       <div className='p-2 mt-16 w-full min-h-[90vh] flex items-center justify-end flex-col'>
-        <Setup setMessageDataList={setMessageDataList} />
         <div className="grid gap-4 p-2">
           {
             messageDataList && messageDataList.map((messageData, index) => (
