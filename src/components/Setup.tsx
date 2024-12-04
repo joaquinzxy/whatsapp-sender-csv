@@ -94,7 +94,7 @@ export const Setup: React.FC<SetupProps> = ({ setMessageDataList, setCsvData }) 
 
   return (
     <div>
-        <div className="grid w-full max-w-sm min-h-[80vh] items-center gap-1.5">
+        <div className="grid w-full max-w-sm min-h-[80vh] items-center gap-1.5 mx-auto">
           <Button onClick={OnClickSubmit} className='mb-10'>Haz click aquí para subir el archivo CSV</Button>
           <Input type="file" className="form-control-file hidden" ref={fileInput} id="csv" onChange={handleFileUpload} />
         </div>

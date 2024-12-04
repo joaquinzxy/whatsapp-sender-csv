@@ -1,10 +1,7 @@
 import { MessageItem } from '@/components/MessageItem';
 import { ParsedData } from '@/interfaces/parsedData.interface';
-import { Setup } from '@/components/Setup';
 import { Toaster } from '@/components/ui/toaster';
-
-import React, { useState } from 'react';
-import { ContactExporter } from '@/components/ContactExporter';
+import React from 'react';
 
 const phoneParser = (phone: string) => {
   if (phone.startsWith('0')) {

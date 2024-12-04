@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button'
 import { Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerFooter, DrawerHeader, DrawerTitle, DrawerTrigger } from '@/components/ui/drawer';
 import { SCREENS } from '@/lib/utils';
-import React, { RefObject, useRef, useState } from 'react';
+import React, { RefObject, useRef } from 'react';
 
 interface ScreenSelectorProps {
   refTrigger: RefObject<HTMLButtonElement>;

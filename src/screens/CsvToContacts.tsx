@@ -1,6 +1,4 @@
 import { ContactItem } from '@/components/ContactItem';
-import { MessageItem } from '@/components/MessageItem';
-import { Setup } from '@/components/Setup';
 import { Toaster } from '@/components/ui/toaster';
 import React, { useEffect, useRef, useState } from 'react';
 
