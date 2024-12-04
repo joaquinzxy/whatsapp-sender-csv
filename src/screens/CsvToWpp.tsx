@@ -18,7 +18,7 @@ interface CsvToWppProps {
 const CsvToWpp: React.FC<CsvToWppProps> = ({ messageDataList }) => {
   const sendWhatsapp = (phone: string, message: string) => {
     if (message && phone) {
-      const url = `https://api.whatsapp.com/send/?phone=${phoneParser(phone)}&text=${encodeURIComponent(message)}`;
+      const url = `https://api.whatsapp.com/send/?phone=0${phoneParser(phone)}&text=${encodeURIComponent(message)}`;
       window.open(url, '_blank');
     }
   }

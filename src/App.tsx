@@ -12,7 +12,7 @@ function App() {
 
   const menuTrigger = useRef<HTMLButtonElement>(null)
 
-  const [screen, setScreen] = useState(SCREENS[0]);
+  const [screen, setScreen] = useState(SCREENS[2]);
 
   const [csvData, setCsvData] = useState<any[]>([]);
 
