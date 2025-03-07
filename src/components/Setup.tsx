@@ -74,6 +74,17 @@ export const Setup: React.FC<SetupProps> = ({ setMessageDataList, setCsvData, se
             };
           });
           const validatedData = processedData.filter(validateCSV);
+
+          processedData.sort((a, b) => {
+            const aTime = a.time.split(':');
+            const bTime = b.time.split(':');
+            if (parseInt(aTime[0]) === parseInt(bTime[0])) {
+              return parseInt(aTime[1]) - parseInt(bTime[1]);
+            }
+            return parseInt(aTime[0]) - parseInt(bTime[0]);
+          }
+          );
+
           setCsvData(processedData);
           if (validatedData.length === 0) {
             toast({
@@ -87,7 +98,7 @@ export const Setup: React.FC<SetupProps> = ({ setMessageDataList, setCsvData, se
               duration: 2000,
             });
 
-            setMessageDataList(validatedData);
+            setMessageDataList(processedData);
             setScreen(SCREENS[0]);
           }
         },
